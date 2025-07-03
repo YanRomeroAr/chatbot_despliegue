@@ -47,8 +47,12 @@ with st.sidebar:
     ))
 
 # Obtener API Key
-openai_api_key = os.getenv("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY", None))
+openai_api_key = st.secrets.get("OPENAI_API_KEY")
 
+if not openai_api_key:
+    st.error("❌ No se encontró la API Key. Configura OPENAI_API_KEY en los Secrets de Streamlit Cloud.")
+    st.stop()
+    
 if not openai_api_key:
     st.error("❌ No se encontró la API Key. Define OPENAI_API_KEY como variable de entorno o en .streamlit/secrets.toml.")
     st.stop()
