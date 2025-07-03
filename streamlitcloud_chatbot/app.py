@@ -17,7 +17,7 @@ with st.sidebar:
         'gpt-4'
     ), key="model")
 
-    image = Image.open('Logos.png')
+    image = Image.open('logos.png')
     st.image(image, caption='OpenAI, Langchain y Streamlit')
 
     st.markdown("Integrando OpenAI con Streamlit y Langchain.")
